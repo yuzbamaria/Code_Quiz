@@ -5,7 +5,7 @@ let startScreen = document.querySelector('#start-screen');
 let endScreen = document.querySelector('#end-screen');
 let questionsScreen = document.querySelector('#questions');
 let currentQuestionIndex = 0;
-let i = 0;
+let questionNumber = 0;
 let questionsContainer = document.querySelector("#questions");
 let choiceButtonEl;
 let feedbackAlert = document.querySelector('#feedback');
@@ -72,11 +72,11 @@ function createOptionButton() {
 // Function to display the current question and choices on the screen
 function displayQuestions() {
     // Retrieve the current question from the quizQuestions array based on the current index (i)
-    currentQuestionIndex = quizQuestions[i];
+    currentQuestionIndex = quizQuestions[questionNumber];
     // Update the text content of the question title element 
     // to display the current question number and title
-    questionTitleEl.textContent = `Question ${i + 1}: ${currentQuestionIndex["question-title"]}`;
-    console.log(`Question ${i + 1}: ${currentQuestionIndex["question-title"]}`);
+    questionTitleEl.textContent = `Question ${questionNumber + 1}: ${currentQuestionIndex["question-title"]}`;
+    console.log(`Question ${questionNumber + 1}: ${currentQuestionIndex["question-title"]}`);
     // Iterate through the choices for the current question
     for (let j = 0; j < currentQuestionIndex.choices.length; j++) {
         // Set the text content of each choice button to display the corresponding choice 
@@ -91,17 +91,28 @@ function buttonsEventList(event) {
     // Get the text content of the clicked button (user's selected choice)
     let selectedChoice = event.target.textContent;
     // Get the current question object based on the current index (i)
-    let currentQuestion = quizQuestions[i];
+    let currentQuestion = quizQuestions[questionNumber];
     // Check if the selected choice matches the correct answer for the current question
     if (selectedChoice === currentQuestion.answer) {
         // If correct, display a correct answer message in the feedback alert
         feedbackAlert.textContent = "Your answer is correct!";
+        setTimeout(function(){
+            feedbackAlert.textContent = ""
+            moveToNextQuestion();
+        }, 3000)
+        // clearTimeout(choiceTimeout)
+        
     } else {
         // If incorrect, subtract 5 seconds from the timer and display a wrong answer message
         timeLeft -= 5;
         feedbackAlert.textContent = "Your answer is wrong!";
+        setTimeout(function(){
+            feedbackAlert.textContent = ""
+            moveToNextQuestion();
+        }, 3000)
+        // clearTimeout(choiceTimeout)
     }
-    moveToNextQuestion();
+    
 }
 
  // Move to the next question, regardless of whether the answer was correct or not
@@ -110,9 +121,9 @@ function buttonsEventList(event) {
 // Move to the next question or end the quiz if all questions are answered
 function moveToNextQuestion() {
     // Check if there are more questions
-    if (i < quizQuestions.length - 1) {
+    if (questionNumber < quizQuestions.length - 1) {
         // If there are, increment the index (i) and display the next question
-        i++;
+        questionNumber++;
         displayQuestions();
     } else {
         // If there are no more questions, end the quiz
@@ -160,7 +171,14 @@ submitBtn.addEventListener('click', function(event) {
         // Save the trimmed value to local storage
         localStorage.setItem('saved-initials', initials);
       }
+      window.location.pathname = '/highscores.html'
 });
+
+
+// let highscores = [];
+// let scoreObject = { initials: localStorage.getItem('saved-initials'), score: localStorage.getItem('saved-finalScore')};
+// console.log(scoreObject);
+
 
 // When the game ends, it should display their score and give the user the ability to 
 // save their initials and their score 
