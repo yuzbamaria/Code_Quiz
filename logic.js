@@ -99,7 +99,7 @@ function buttonsEventList(event) {
         setTimeout(function(){
             feedbackAlert.textContent = ""
             moveToNextQuestion();
-        }, 3000)
+        }, 1000)
         // clearTimeout(choiceTimeout)
         
     } else {
@@ -109,7 +109,7 @@ function buttonsEventList(event) {
         setTimeout(function(){
             feedbackAlert.textContent = ""
             moveToNextQuestion();
-        }, 3000)
+        }, 1000)
         // clearTimeout(choiceTimeout)
     }
     
@@ -152,27 +152,41 @@ function displayScore() {
     if (endQuiz) {
         // Add textContent to span final-score from the timeLeft
         finalScore.textContent = timeLeft;
-        // Save finalScore in localStorage
-        localStorage.setItem('saved-finalScore', timeLeft);
     }
 }
 
 // Create eventListener for submit button on the end-screen 
 // Select button element from end-screen and store it in a variable 
 let submitBtn = document.querySelector("#submit");
+let  highscoresArray = [];
 // Add eventListener to submitBtn 
 submitBtn.addEventListener('click', function(event) {
     // use preventDefault to prevent dafault submit and just save to localStorage
     event.preventDefault();
       // Get the input field value 
       let initials = document.querySelector("#initials").value;
-       // Check if the input value is not empty after removing leading and trailing whitespaces
-      if (initials !== '') {
+    //   if (initials !== '') {
+        finalScore.textContent = timeLeft;
         // Save the trimmed value to local storage
-        localStorage.setItem('saved-initials', initials);
-      }
+        highscores = { initials: initials, score: timeLeft };
+        // localStorage.setItem('highscores', JSON.stringify(highscores));
+        let highScoresLocStor = JSON.parse(localStorage.getItem('highscores'));
+        // let highScoresLocStor = null;
+        if (highScoresLocStor === null) {
+            highscoresArray.push(highscores);
+            localStorage.setItem('highscores', JSON.stringify(highscoresArray));
+        } else {
+            highScoresLocStor.push(highscores);
+            localStorage.setItem('highscores', JSON.stringify(highScoresLocStor));
+        }
+    //   }
+       // Check if the input value is not empty after removing leading and trailing whitespaces
+      
+      
       window.location.pathname = '/highscores.html'
 });
+
+
 
 
 // let highscores = [];

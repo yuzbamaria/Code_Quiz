@@ -6,40 +6,25 @@ let highscoresFromStorage = [];
 function displayScoreInitials () {
     let highscoresFromLocalStorage = JSON.parse(localStorage.getItem('highscores'));
     console.log(highscoresFromLocalStorage);
-    // Get saved initials and score from localStorage
-    let initials = localStorage.getItem('saved-initials');
-    let score = localStorage.getItem('saved-finalScore');
-
-    console.log(initials , score);
-    // initials = null --> falsy value
-    if(initials && score){
-        scoreObject = { initials: initials, score: score };
-        // if the user plays for the first time
-        if (highscoresFromLocalStorage === null) {
-            highscoresFromLocalStorage = [];
-            highscoresFromLocalStorage.push(scoreObject);
-            localStorage.setItem('highscores', JSON.stringify(highscoresFromLocalStorage));
-        } else {
-            highscoresFromLocalStorage.push(scoreObject);
-            localStorage.setItem('highscores', JSON.stringify(highscoresFromLocalStorage));
-        }
-        
-    }
     
-    // highscoresFromStorage.push(scoreObject);
+    highscoresFromLocalStorage.sort(function scoreOrder(a, b) {
+        return b.score - a.score;
+    });
+    
+
     // Select parent ol element 
     if (highscoresFromLocalStorage) {
         let olEl = document.querySelector("#highscores");
         // loop through highscores array and create li for each user input
-        highscoresFromLocalStorage.forEach((key) => {
-            // Create ul for each result in the ol tag
+        for (let i = 0; i < highscoresFromLocalStorage.length; i++) {
+            // Create li for each result in the ol tag
             let liEl = document.createElement('li');
             // Add content to each ul element from user input: initials and score
-            liEl.textContent = key.initials + ' - ' + key.score;
+            liEl.textContent = highscoresFromLocalStorage[i].initials + ' - ' + highscoresFromLocalStorage[i].score;
             olEl.appendChild(liEl);
-});
+};
     }
-    console.log(scoreObject);
+    // console.log(scoreObject);
 }
 
 displayScoreInitials();
