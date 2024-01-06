@@ -26,6 +26,16 @@ startBtn.addEventListener('click', function (event) {
     displayQuestions();
 });
 
+// Use audio file
+const correctAudio = new Audio('./assets/sfx/correct.wav');
+const incorrectAudio = new Audio('./assets/sfx/incorrect.wav');
+
+// Example to play the audio when start button is clicked
+document.getElementById('start').addEventListener('click', function() {
+    correctAudio.play();
+});
+
+
 
 function startQuiz() {
     timeLeft = 59;
@@ -96,6 +106,7 @@ function buttonsEventList(event) {
     if (selectedChoice === currentQuestion.answer) {
         // If correct, display a correct answer message in the feedback alert
         feedbackAlert.textContent = "Your answer is correct!";
+        correctAudio.play();
         setTimeout(function(){
             feedbackAlert.textContent = ""
             moveToNextQuestion();
@@ -106,17 +117,14 @@ function buttonsEventList(event) {
         // If incorrect, subtract 5 seconds from the timer and display a wrong answer message
         timeLeft -= 5;
         feedbackAlert.textContent = "Your answer is wrong!";
+        incorrectAudio.play();
         setTimeout(function(){
             feedbackAlert.textContent = ""
             moveToNextQuestion();
         }, 1000)
         // clearTimeout(choiceTimeout)
-    }
-    
+    }  
 }
-
- // Move to the next question, regardless of whether the answer was correct or not
-    // moveToNextQuestion();
 
 // Move to the next question or end the quiz if all questions are answered
 function moveToNextQuestion() {
@@ -158,60 +166,38 @@ function displayScore() {
 // Create eventListener for submit button on the end-screen 
 // Select button element from end-screen and store it in a variable 
 let submitBtn = document.querySelector("#submit");
+// Initialize an empty array to store highscores
 let  highscoresArray = [];
 // Add eventListener to submitBtn 
 submitBtn.addEventListener('click', function(event) {
     // use preventDefault to prevent dafault submit and just save to localStorage
     event.preventDefault();
-      // Get the input field value 
+      // Get the value of the initials input field
       let initials = document.querySelector("#initials").value;
-    //   if (initials !== '') {
+        // Update the content of the finalScore element 
         finalScore.textContent = timeLeft;
-        // Save the trimmed value to local storage
+        // Create a highscores object with initials and score
         highscores = { initials: initials, score: timeLeft };
-        // localStorage.setItem('highscores', JSON.stringify(highscores));
+        // Retrieve highscores from localStorage and parse it
         let highScoresLocStor = JSON.parse(localStorage.getItem('highscores'));
-        // let highScoresLocStor = null;
+        // Check if there are existing highscores in localStorage
         if (highScoresLocStor === null) {
+            // If no existing highscores, push the current highscores to the array 
+            // and save to localStorage
             highscoresArray.push(highscores);
             localStorage.setItem('highscores', JSON.stringify(highscoresArray));
         } else {
+            // If there are existing highscores, push the current highscores 
+            //to the array and save to localStorage
             highScoresLocStor.push(highscores);
             localStorage.setItem('highscores', JSON.stringify(highScoresLocStor));
         }
-    //   }
-       // Check if the input value is not empty after removing leading and trailing whitespaces
-      
-      
-      window.location.pathname = '/highscores.html'
+    // Redirect the user to the 'highscores.html' page
+    window.location.pathname = '/highscores.html'
 });
 
 
-
-
-// let highscores = [];
-// let scoreObject = { initials: localStorage.getItem('saved-initials'), score: localStorage.getItem('saved-finalScore')};
-// console.log(scoreObject);
-
-
-// When the game ends, it should display their score and give the user the ability to 
-// save their initials and their score 
-
-// Score
-// add score when user answers each question 
-// store the score in localStorage 
-// get the score from Local storage, 
-// calculate it 
-// and display the total score when the game ends, in endQuiz function
-
-// Initials
 // Add 7 more questions
-
-// Correct
 // Correct Options for the 3 questions already in the code
-// Correct how feedbacks appear, now on the next question, but should be on the current question
-// the highscore should be ordered and should save all user data 
-// the highscores should be saved to localStorage so that if I refresh, the data stays, and later 
-// I can clear the data
 
 

@@ -1,17 +1,14 @@
-
-let scoreObject; 
-let highscoresFromStorage = [];
-
 // Create a function to display user initials and score
 function displayScoreInitials () {
+    // Retrieve highscores array from localStorage and parse it
     let highscoresFromLocalStorage = JSON.parse(localStorage.getItem('highscores'));
+    // Log the parsed highscores array to the console
     console.log(highscoresFromLocalStorage);
-    
+    // Sort the highscores array based on the 'score' property in descending order
     highscoresFromLocalStorage.sort(function scoreOrder(a, b) {
         return b.score - a.score;
     });
     
-
     // Select parent ol element 
     if (highscoresFromLocalStorage) {
         let olEl = document.querySelector("#highscores");
@@ -22,9 +19,8 @@ function displayScoreInitials () {
             // Add content to each ul element from user input: initials and score
             liEl.textContent = highscoresFromLocalStorage[i].initials + ' - ' + highscoresFromLocalStorage[i].score;
             olEl.appendChild(liEl);
-};
+        };
     }
-    // console.log(scoreObject);
 }
 
 displayScoreInitials();
