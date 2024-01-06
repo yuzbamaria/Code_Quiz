@@ -56,6 +56,8 @@ li:nth-child(odd) {
 .wrapper {
   margin: 100px auto 0 auto;
   max-width: 600px;
+  background-color: rgb(180, 162, 206);
+  padding: 40px;
 }
 
 .hide {
@@ -70,6 +72,8 @@ li:nth-child(odd) {
   position: absolute;
   top: 10px;
   left: 10px;
+  margin-top: 5px;
+  margin-left: 10px;
 }
 
 .feedback {
@@ -85,4 +89,10 @@ li:nth-child(odd) {
   position: absolute;
   top: 10px;
   right: 10px;
+  margin-top: 5px;
+  margin-right: 10px;
 }
+
+/* #start-screen {
+  margin-top: 80px;
+} */
