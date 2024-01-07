@@ -1,10 +1,16 @@
 body {
   font-family: Arial;
   font-size: 120%;
+  height: 100vh;
+  /* background: radial-gradient(circle at 10% 20%, rgb(215, 223, 252) 0%, rgb(255, 255, 255) 0%, rgb(215, 223, 252) 84%); */
+  background-image: url('/assets/images/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 a {
-  color: #563d7c;
+  color: white;
   text-decoration: none;
   transition: color 0.1s;
 }
@@ -56,8 +62,10 @@ li:nth-child(odd) {
 .wrapper {
   margin: 100px auto 0 auto;
   max-width: 600px;
-  background-color: rgb(180, 162, 206);
+  background-color: rgb(181, 179, 183);
   padding: 40px;
+  /* backdrop-filter: blur(50px); */
+  border-radius: 5px;
 }
 
 .hide {
@@ -74,6 +82,10 @@ li:nth-child(odd) {
   left: 10px;
   margin-top: 5px;
   margin-left: 10px;
+  background-color: #563d7c;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
 }
 
 .feedback {
@@ -81,7 +93,7 @@ li:nth-child(odd) {
   font-size: 120%;
   margin-top: 20px;
   padding-top: 10px;
-  color: gray;
+  color: rgb(69, 67, 67);
   border-top: 2px solid #ccc;
 }
 
@@ -91,6 +103,10 @@ li:nth-child(odd) {
   right: 10px;
   margin-top: 5px;
   margin-right: 10px;
+  background-color: #563d7c;
+  padding: 5px;
+  color: white;
+  border-radius: 5px;
 }
 
 /* #start-screen {

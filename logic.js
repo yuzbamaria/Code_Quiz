@@ -197,7 +197,5 @@ submitBtn.addEventListener('click', function(event) {
 });
 
 
-// Add 7 more questions
-// Correct Options for the 3 questions already in the code
 
 
