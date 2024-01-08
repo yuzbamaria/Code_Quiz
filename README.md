@@ -4,7 +4,7 @@
 1. [Description](#description)
 2. [User story](#user_story)
 3. [Acceptance Criteria](#criteria)
-4. [Deployed application link](#link)
+4. [A link to the deployed application](#link)
 5. [Screenshots of the application](#screenshots)
 6. [License](#license)
 
