@@ -1,13 +1,5 @@
 # Code Quiz
 
-## Table of Contents
-1. [Description](#description)
-2. [User story](#user_story)
-3. [Acceptance Criteria](#criteria)
-4. [A link to the deployed application](#link)
-5. [Screenshots of the application](#screenshots)
-6. [License](#license)
-
 ## Description
 This is the solution for the challenge from EdX bootcamp, Week 6, Day 4.
 During Week 5 at the bootcamp, I learnt DOM, Vanilla JS, local storage and my task was to apply the skills I got and create a timed coding quiz with multiple-choice questions. 
