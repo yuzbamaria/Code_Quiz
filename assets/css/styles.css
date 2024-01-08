@@ -2,8 +2,7 @@ body {
   font-family: Arial;
   font-size: 120%;
   height: 100vh;
-  /* background: radial-gradient(circle at 10% 20%, rgb(215, 223, 252) 0%, rgb(255, 255, 255) 0%, rgb(215, 223, 252) 84%); */
-  background-image: url('/assets/images/background.jpg');
+  background-image: url('../images/background.jpg'); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -14,10 +13,6 @@ a {
   text-decoration: none;
   transition: color 0.1s;
 }
-
-/* a:hover {
-  background-color:#166722;
-} */
 
 button {
   display: inline-block;
@@ -111,6 +106,3 @@ li:nth-child(odd) {
   border-radius: 5px;
 }
 
-/* #start-screen {
-  margin-top: 80px;
-} */
