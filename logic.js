@@ -193,7 +193,7 @@ submitBtn.addEventListener('click', function(event) {
             localStorage.setItem('highscores', JSON.stringify(highScoresLocStor));
         }
     // Redirect the user to the 'highscores.html' page
-    location.href = 'assets/js/highscores.html'
+    location.href = '/highscores.html'
 });
 
 
