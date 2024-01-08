@@ -2,7 +2,7 @@
 
 ## Description
 This is the solution for the challenge from EdX bootcamp, Week 6, Day 4.
-During Week 5 at the bootcamp, I learnt DOM, Vanilla JS, local storage nd my task was to apply the skills I got and create a timed coding quiz with multiple-choice questions. 
+During Week 5 at the bootcamp, I learnt DOM, Vanilla JS, local storage and my task was to apply the skills I got and create a timed coding quiz with multiple-choice questions. 
 This app runs in the browser, and featurea dynamically updated HTML and CSS powered by JavaScript code. It has a clean, polished, and responsive user interface. 
 
 ## User Story 
