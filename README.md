@@ -1,14 +1,13 @@
 # Code Quiz
 
 ## Description
-This is the solution for the challenge from EdX bootcamp, Week 6, Day 4.
-During Week 5 at the bootcamp, I learnt DOM, Vanilla JS, local storage and my task was to apply the skills I got and create a timed coding quiz with multiple-choice questions. 
-This app runs in the browser, and featurea dynamically updated HTML and CSS powered by JavaScript code. It has a clean, polished, and responsive user interface. 
+Since I learnt the concepts of DOM, Vanilla JS, and local storage, my task is to apply the new skills and create a timed coding quiz with multiple-choice questions. 
+This app runs in the browser, and features a dynamically updated HTML and CSS powered by JavaScript code. It has a clean, polished, and responsive user interface. 
 
 ## User Story 
-- AS A coding boot camp student
+- AS A learner developer
 - I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-- SO THAT I can gauge my progress compared to my peers
+- SO THAT I can revise the main concepts of JS
 
 ## Acceptance Criteria
 The criteria I need to take into account are the following:
